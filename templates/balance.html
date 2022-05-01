@@ -1,0 +1,25 @@
+{% extends "base.html"%}
+{% load static %}
+{% load tailwind_filters %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class='flex flex-col'>
+        <div class='flex flex-col items-center font-bold text-xl mt-5'>
+            Find Balance of any Address on listed Blockchain
+        </div>
+        <form class='m-10 p-5 flex flex-col items-center  rounded-lg' method="post">
+            {% csrf_token %}
+            <div>
+                {{form2|crispy}}
+            </div>
+            <div class='flex items-center'>
+                <button class='px-4 py-2 bg-emerald-400 rounded-full' type='submit'>
+                    Find Balance
+                </button>
+            </div>
+        </form>
+        <div class='flex flex-col items-center text-xl font-bold'>
+            {{Address}} = {{balance}}
+        </div>
+    </div>
+{% endblock content%}

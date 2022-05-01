@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png"  href="{% static 'images/logo.png' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: #ededed;
+        }
+    </style>
+    <title>Crypto Utility</title>
+</head>
+<body>
+    <div class='flex bg-[#2c2c2c] text-slate-50 px-10 py-8 justify-between' >
+        <div class='flex flex-row text-2xl font-bold'>
+            <img src="{% static 'images/logo.png' %}" alt="logo" width='25px'>
+            <div class='px-2'>
+            CryptoUtility
+            </div>
+        </div>
+        <div class='font-bold'>
+            <ul class='flex flex-row items-center'>
+                <li class='px-4'>
+                    <a href="/">
+                        Home
+                    </a> 
+                </li>
+                <li class='px-4'>
+                    <a href="/converter">
+                        Converter
+                    </a> 
+                </li>
+                <li class='px-4'>
+                    <a href="/balance">
+                        Check Balance
+                    </a> 
+                </li>
+                {% if user.is_authenticated %}
+                <li>
+                    <li>
+                        <a class='px-4 py-2' href="/profile">
+                            Profile
+                        </a> 
+                    </li>
+                    <li>
+                        <a class='px-4 py-2 bg-emerald-400 rounded-full' href="/logout">
+                            Logout
+                        </a> 
+                    </li>
+                {% else %}
+                    <a class='px-4 py-2 bg-emerald-400 rounded-full' href="/login">
+                        Login
+                    </a> 
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    <div class='container flex justify-center'>
+        {% if messages %}
+            {% for message in messages %}
+                <div class='alert alert{{message.tags}} bg-emerald-400 w-11/12 m-2 p-3 text-emerald-900'>
+                    {{message}}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    {% block content %}{% endblock %}
+</body>
+</html>

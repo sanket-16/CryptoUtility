@@ -1,0 +1,17 @@
+{% extends "base.html"%}
+{% load static %}
+{% block content %}
+  <div class ="flex flex-col text-white bg-[url('{% static 'images/background.png' %}')] h-screen">
+    <div class='flex m-28 pt-20 flex-col '>
+      <div class='text-4xl font-bold'>
+        Crypto Utilities
+      </div>
+      <div class='py-5'>
+        Get a bunch of latest and useful crypto tools.
+      </div>
+      <button class='px-4 py-2 bg-emerald-400 rounded-full w-40 h-14'>
+        <a href="/register">Sign Up</a>
+      </button>
+    </div>
+  </div>
+{% endblock content%}

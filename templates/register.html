@@ -1,0 +1,25 @@
+{% extends "base.html"%}
+{% load static %}
+{% load tailwind_filters %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class='flex flex-col items-center justify-center h-screen align-middle'>
+        <form action='' method='POST'>
+            {% csrf_token %}
+            <fieldset class='form-group'>
+                {{ form|crispy }}
+            </fieldset>
+            <div class='form-group flex justify-center' id='signup-button'>
+                <button class='btn px-4 py-2 bg-emerald-400 rounded-full text-white font-bold'>
+                    Sign Up
+                </button>
+            </div>
+            <div class='text-black flex justify-center'>
+                Already have an account? 
+                <a class='text-emerald-400 px-1' href='/login'>
+                    Login
+                </a>
+            </div>
+        </form>
+    </div>
+{% endblock content%}

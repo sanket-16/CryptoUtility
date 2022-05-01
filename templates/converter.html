@@ -1,0 +1,64 @@
+{% extends "base.html"%}
+{% load static %}
+{% load tailwind_filters %}
+{% load crispy_forms_tags %}
+{% block content %}
+<form class='m-10 p-5 flex flex-col items-center  rounded-lg' method="post">
+    {% csrf_token %}
+    <div class='text-3xl font-bold pb-10'>
+        Crypto Converter
+    </div>
+    <div class=''>
+    {{form|crispy}}
+    </div>
+    <div class='flex items-center'>
+        <button class='px-4 py-2 bg-emerald-400 rounded-full' type='submit'>
+            Convert
+        </button>
+    </div>
+</form>
+<div class='flex flex-col items-center justify-center font-bold'>
+    <div>
+        {{Quantity}} 
+            {{convertFrom}}
+            = 
+            {{convertedamount}} 
+        {{convertTo}}
+    </div>
+</div>
+{% endblock content%}
+{% comment %} 'coins': coins,
+'form': form,
+'convert': convert,
+'symbol': symbol,
+'convertedamount' : convertedamount,
+'convertFrom': ConvertFrom,
+'convertTo': ConvertTo,
+'Quantity': Quantity,
+'price1': price1,
+'price2':price2, {% endcomment %}
+{% comment %} <div class='flex flex-col'>
+        <div class='flex flex-col px-4'>Enter quantity:
+        <input class='w-64 bg-slate-900 px-2 py-3 rounded-lg border-2 border-slate-700' type="text" name="" id="">
+        </div>
+    <div class='flex flex-row'>
+        <div class='flex flex-col m-5'>
+            <label class='pb-4' for="coins">Select a CryptoCurrency:</label>
+            <select class='w-64 bg-slate-900 px-2 py-3 rounded-lg border-2 border-slate-700'  name="coins" id="coins">
+                {%for coin in coins%}
+                <option value="free p-10">{{coin.name}}</option>
+                {%endfor%}
+            </select>
+        </div>
+        <div class='flex flex-col m-5'>
+            <label class='pb-4' for="coins">Select a CryptoCurrency:</label>
+            <select class='w-64 bg-slate-900 px-2 py-3 rounded-lg border-2 border-slate-700' name="coins" id="coins">
+                {%for coin in coins%}
+                <option value="free">{{coin.name}}</option>
+                {%endfor%}
+            </select>
+        </div>
+    </div>
+    <div>
+    </div>
+    </div> {% endcomment %}

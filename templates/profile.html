@@ -1,0 +1,14 @@
+{% extends "base.html"%}
+{% load static %}
+{% load tailwind_filters %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class='flex flex-col'>
+        <div class="text-2xl">
+            Username: {{user.username}}
+        </div>
+        <div class="text-2xl">
+            Email: {{user.email}}
+        </div>
+    </div>
+{% endblock content%}
